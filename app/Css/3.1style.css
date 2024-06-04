@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+/*Estilizando a página de requisição com sucesso.*/
+
+body {
+    text-align: center;
+    align-items: center;
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+

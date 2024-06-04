@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+/*Estilizando a segunda página*/
+
+body {
+    background: linear-gradient(to right, white, rgb(169, 169, 169, 0.459), rgb(0,0,0,0.151));
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: floralwhite;
+    background-color: blue;
+    font-size: 50px;
+}
+
+div {
+    text-align: center;
+    align-items: center;
+}
+
+/*Foi necessário criar alguns input's com tipos diferentes para manter o padrão de estilização de cada página*/
+
+input[type=number] {
+    background: rgba(169, 169, 169, 0.089);
+    
+}
+
+input[type=button] {
+    border: solid 1px black;
+    border-radius: 5px;
+    background-color: rgb(201, 199, 197);
+    padding: 5px 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+a {
+    text-align: center;
+}
