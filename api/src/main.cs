@@ -4,7 +4,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSingleton<Database>();
 
+builder.Services.AddCors();
+
 var app = builder.Build();
+
+app.UseCors(config =>
+{
+    config.AllowAnyHeader();
+    config.AllowAnyMethod();
+    config.AllowAnyOrigin();
+});
 
 app.MapGet("/BuscarQuantidade/{codigo}", (
     string codigo,
@@ -20,7 +29,10 @@ app.MapGet("/BuscarQuantidade/{codigo}", (
         return Results.NotFound();
     }
 
-    return Results.Ok(produto.Quantidade);
+    return Results.Ok(new
+    {
+        val = produto.Quantidade
+    });
 });
 
 app.MapPatch("/RemoverProduto/{codigo}", (

@@ -3,11 +3,11 @@ namespace ProjetoWeb;
 public class Database
 {
     public List<Produto> Produtos { get; set; } = [
-        new("QES#34X", 0),
-        new("ESP#23Y", 0),
-        new("SDF#43Z", 0),
-        new("WRT#32P", 0),
-        new("OXT#45O", 0),
-        new("DRT#56H", 0),
+        new("1", 2),
+        new("2", 4),
+        new("3", 0),
+        new("4", 5),
+        new("5", 3),
+        new("6", 137),
     ];
 }
