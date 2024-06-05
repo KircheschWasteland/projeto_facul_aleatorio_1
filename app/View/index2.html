@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Css/2style.css">
     <title>Estoque</title>
 </head>
+
 <body>
     <!--Aqui foi criado a tabela onde será mostrado os produtos que tem no estoque-->
     <div>
@@ -21,51 +23,86 @@
             </tr>
             <tr>
                 <td>XXX</td>
-                <td><input type="number"></td>
+                <td><input type="number" id="qtd1"></td>
                 <td>AAA</td>
                 <td>QES#34X</td>
                 <td>A</td>
             </tr>
             <tr>
                 <td>YYY</td>
-                <td><input type="number"></td>
+                <td><input type="number" id="qtd2"></td>
                 <td>BBB</td>
                 <td>ESP#23Y</td>
                 <td>B</td>
             </tr>
             <tr>
                 <td>ZZZ</td>
-                <td><input type="number"></td>
+                <td><input type="number" id="qtd3"></td>
                 <td>CCC</td>
                 <td>SDF#43Z</td>
                 <td>C</td>
             </tr>
             <tr>
                 <td>PPP</td>
-                <td><input type="number"></td>
+                <td><input type="number" id="qtd4"></td>
                 <td>DDD</td>
                 <td>WRT#32P</td>
                 <td>D</td>
             </tr>
             <tr>
                 <td>OOO</td>
-                <td><input type="number"></td>
+                <td><input type="number" id="qtd5"></td>
                 <td>EEE</td>
                 <td>OXT#45O</td>
                 <td>E</td>
             </tr>
             <tr>
                 <td>HHH</td>
-                <td><input type="number"></td>
+                <td><input type="number" id="qtd6"></td>
                 <td>FFF</td>
                 <td>DRT#56H</td>
                 <td>F</td>
             </tr>
         </table>
-    
-    <p><a href="index3.html"><input type="button" value="Requisitar produto"></a>
-    <a href="index4.html"><input type="button" value="Cadastrar produto"></a></p>
+
+        <p><a href="index3.html"><input type="button" value="Requisitar produto"></a>
+            <a href="index4.html"><input type="button" value="Cadastrar produto"></a>
+        </p>
     </div>
     <!--Foram criados link's em cada botão para levar o usúario a página de requisição ou de cadastro de novos produtos-->
+
+    <script>
+        fetch("https://localhost:7102/BuscarQuantidade/1")
+            .then(async (res) => {
+                let response = await res.json();
+                document.getElementById("qtd1").value = response.val;
+            });
+        fetch("https://localhost:7102/BuscarQuantidade/2")
+            .then(async (res) => {
+                let response = await res.json();
+                document.getElementById("qtd2").value = response.val;
+            });
+        fetch("https://localhost:7102/BuscarQuantidade/3")
+            .then(async (res) => {
+                let response = await res.json();
+                document.getElementById("qtd3").value = response.val;
+            });
+        fetch("https://localhost:7102/BuscarQuantidade/4")
+            .then(async (res) => {
+                let response = await res.json();
+                document.getElementById("qtd4").value = response.val;
+            });
+        fetch("https://localhost:7102/BuscarQuantidade/5")
+            .then(async (res) => {
+                let response = await res.json();
+                document.getElementById("qtd5").value = response.val;
+            });
+        fetch("https://localhost:7102/BuscarQuantidade/6")
+            .then(async (res) => {
+                let response = await res.json();
+                document.getElementById("qtd6").value = response.val;
+            });
+    </script>
 </body>
+
 </html>

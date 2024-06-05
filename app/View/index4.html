@@ -1,43 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Css/style.css">
     <title>Cadastrando Produto</title>
 </head>
+
 <body>
     <h1>Projeto Web</h1>
     <h2>Informe os dados do produto que deseja cadastrar:</h2>
-    
+
     <!--Caso o produto seja novo e o usuário deseje cadastrar o mesmo, será redirecionado a esta página, onde irá preencher o formulário e cadastrar o produto-->
-    
+
     <form autocomplete="on">
         <fieldset>
-        <b><p><label for="Nome">Nome</label></b>
-              <input type="text" id="Nome" style="margin-left: 20px;" placeholder="Digite o nome do produto"></p>
+            <b>
+                <p><label for="Nome">Nome</label>
+            </b>
+            <input type="text" id="Nome" style="margin-left: 20px;" placeholder="Digite o nome do produto"></p>
 
-        <b><p><label for="Quant">Quant.</label></b>
-              <input type="number" id="Quant" style="margin-left: 16px;" placeholder="Digite a quantidade para armazenar"></p>
+            <b>
+                <p><label for="Quant">Quant.</label>
+            </b>
+            <input type="number" id="Quant" style="margin-left: 16px;" placeholder="Digite a quantidade para armazenar">
+            </p>
 
-        <b><p><label for="Local">Local</label></b>
-              <input type="text" id="Local" style="margin-left: 25px;" placeholder="Digite o local que será armazenado"></p>
-            
-        <b><p><label for="Código">Código</label></b>
-            <input type="text" id="Código" style="margin-left: 13px;" placeholder="Digite o código do produto"></p>
+            <b>
+                <p><label for="Local">Local</label>
+            </b>
+            <input type="text" id="Local" style="margin-left: 25px;" placeholder="Digite o local que será armazenado">
+            </p>
 
-        <b><p><label for="Tipo">Tipo</label></b>
-              <input type="text" id="Tipo"  style="margin-left: 32px;" placeholder="Tipo do produto"></p>
-        
-        <b><p><label for="Data">Data</label></b>
-              <input type="datetime-local" id="Data" style="margin-left: 20px;"></p>
-              
-            </fieldset>
+            <b>
+                <p><label for="Código">Código</label>
+            </b>
+            <input type="text" id="in_codigo" style="margin-left: 13px;" placeholder="Digite o código do produto"></p>
+
+            <b>
+                <p><label for="Tipo">Tipo</label>
+            </b>
+            <input type="text" id="Tipo" style="margin-left: 32px;" placeholder="Tipo do produto"></p>
+
+            <b>
+                <p><label for="Data">Data</label>
+            </b>
+            <input type="datetime-local" id="Data" style="margin-left: 20px;"></p>
+
+        </fieldset>
     </form>
 
-    <p><a href="index5.html"><input type="button" value="Cadastrar"></a>
+    <p><a href="index5.html"><input type="button" value="Cadastrar" id="btn_submit"></a>
         <a href="index4.html"><input type="reset" value="Apagar"></a>
     </p>
-    
+
+
+    <script>
+        document.getElementById("btn_submit").onclick = (e) => {
+            e.preventDefault();
+
+            let codigo = document.getElementById("in_codigo").value;
+
+            console.log(codigo);
+
+            let idProduto = 1;
+            switch (codigo) {
+                case "QES#34X": idProduto = 1; break;
+                case "ESP#23Y": idProduto = 2; break;
+                case "SDF#43Z": idProduto = 3; break;
+                case "WRT#32P": idProduto = 4; break;
+                case "OXT#45O": idProduto = 5; break;
+                case "DRT#56H": idProduto = 6; break;
+            }
+
+            fetch("https://localhost:7102/AdicionarProduto/" + idProduto, {
+                method: "POST",
+                body: null
+            })
+                .then(async (res) => {
+                    console.log(res.status);
+                    window.location = "index2.html";
+                });
+        }
+    </script>
+
 </body>
+
 </html>
